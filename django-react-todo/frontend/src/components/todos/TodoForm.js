@@ -21,6 +21,7 @@ class TodoForm extends Component {
   };
 
   render() {
+    const btnText = `${this.props.initialValues ? 'Update' : 'Add'}`;
     return (
       <div className='ui segment'>
         <form
@@ -28,12 +29,13 @@ class TodoForm extends Component {
           className='ui form error'
         >
           <Field name='task' component={this.renderField} label='Task' />
-          <button className='ui primary button'>Add</button>
+          <button className='ui primary button'>{btnText}</button>
         </form>
       </div>
     );
   }
 }
+
 
 const validate = formValues => {
   const errors = {};

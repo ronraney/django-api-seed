@@ -43,3 +43,13 @@ export const deleteTodo = id => async dispatch => {
   });
   history.push('/');
 };
+
+// EDIT TODO
+export const editTodo = (id, formValues) => async dispatch => {
+  const res = await axios.patch(`/api/todos/${id}/`, formValues);
+  dispatch({
+    type: EDIT_TODO,
+    payload: res.data
+  });
+  history.push('/');
+};
